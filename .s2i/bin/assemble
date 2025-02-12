@@ -5,15 +5,23 @@ npm install -g yarn
 set -e
 
 # Crear un directorio local para instalar pip y mkdocs
-PIP_HOME=$HOME/.local
+export PIP_HOME=$HOME/.local
 export PATH=$PIP_HOME/bin:$PATH
 
-# Verificar si pip ya está instalado, si no, instalarlo localmente
+# Verificar si python3 y pip3 están instalados
+if ! command -v python3 > /dev/null; then
+  echo "Python3 no está disponible, verifica tu imagen base."
+  exit 1
+fi
 
-echo "Instalando pip localmente..."
-curl -sS https://bootstrap.pypa.io/get-pip.py | python3 --user
+# Instalar pip3 localmente si no está disponible
+if ! command -v pip3 > /dev/null; then
+  echo "Instalando pip localmente..."
+  curl -sS https://bootstrap.pypa.io/get-pip.py | python3 - --user
+  export PATH=$HOME/.local/bin:$PATH
+fi
 
-# Instalar mkdocs-techdocs-core en el directorio local
+# Instalar mkdocs-techdocs-core localmente
 pip3 install --user mkdocs-techdocs-core==1.1.7
 
 shopt -s dotglob
