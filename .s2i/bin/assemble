@@ -6,7 +6,7 @@ set -e
 
 # Instalar python3-pip y git si no están presentes
 echo "Instalando dependencias adicionales..."
-yum update -y && yum install -y python3-pip git && yum clean all
+#yum update -y && yum install -y python3-pip git && yum clean all
 
 # Instalar mkdocs-techdocs-core
 pip3 install mkdocs-techdocs-core==1.1.7
