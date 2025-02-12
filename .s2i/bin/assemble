@@ -9,10 +9,9 @@ PIP_HOME=$HOME/.local
 export PATH=$PIP_HOME/bin:$PATH
 
 # Verificar si pip ya está instalado, si no, instalarlo localmente
-if ! command -v pip3 > /dev/null; then
-  echo "Instalando pip localmente..."
-  curl -sS https://bootstrap.pypa.io/get-pip.py | python3 --user
-fi
+
+echo "Instalando pip localmente..."
+curl -sS https://bootstrap.pypa.io/get-pip.py | python3 --user
 
 # Instalar mkdocs-techdocs-core en el directorio local
 pip3 install --user mkdocs-techdocs-core==1.1.7
