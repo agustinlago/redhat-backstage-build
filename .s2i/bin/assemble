@@ -22,7 +22,7 @@ if ! command -v pip3 > /dev/null; then
 fi
 
 # Instalar mkdocs-techdocs-core localmente
-pip3 install --user mkdocs-techdocs-core==1.1.7
+pip3 install --user mkdocs-techdocs-core
 
 shopt -s dotglob
 if [ -d /tmp/artifacts ] && [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
